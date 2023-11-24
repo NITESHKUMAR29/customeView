@@ -12,4 +12,10 @@
             <enum name="sad" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="PercentagesView">
+        <attr name="barColor" format="color" />
+        <attr name="barBorderWidth" format="dimension" />
+        <attr name="barBorderColor" format="color" />
+    </declare-styleable>
 </resources>

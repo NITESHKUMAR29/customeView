@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -23,6 +23,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/textView2"
+            app:borderWidth="2dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
             app:borderColor="@color/yellow_dark"
@@ -33,6 +34,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             app:mouthColor="@color/orange_dark"
             app:state="sad" />
+
+        <com.example.emotionalfacecustomview.customViews.PercentagesView
+            android:id="@+id/percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:barBorderWidth="2dp"
+            app:barColor="@color/white_dim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emotionalFaceView" />
 
         <Button
             android:id="@+id/happy"
@@ -52,6 +64,16 @@
             app:layout_constraintBottom_toTopOf="@+id/happy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/start_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/percentage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
