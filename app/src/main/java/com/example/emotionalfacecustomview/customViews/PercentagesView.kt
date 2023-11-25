@@ -24,14 +24,15 @@ class PercentagesView(context: Context, attributeSet: AttributeSet) : View(conte
     }
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    var height = DEFAULT_BAR_HEIGHT
-    var width = DEFAULT_BAR_WIDTH
-    var barColor = DEFAULT_BAR_COLOR
-    var borderColor = DEFAULT_BORDER_COLOR
-    var percentageColor = DEFAULT_BAR_PERCENTAGE_COLOR
-   // var percentage = DEFAULT_PERCENTAGE
-    var borderWidth = DEFAULT_BORDER_WIDTH
-    var padding = DEFAULT_PADDING
+    private var height = DEFAULT_BAR_HEIGHT
+    private var width = DEFAULT_BAR_WIDTH
+    private var barColor = DEFAULT_BAR_COLOR
+    private var borderColor = DEFAULT_BORDER_COLOR
+    private var percentageColor = DEFAULT_BAR_PERCENTAGE_COLOR
+
+    // var percentage = DEFAULT_PERCENTAGE
+    private var borderWidth = DEFAULT_BORDER_WIDTH
+    private var padding = DEFAULT_PADDING
 
     var percentage = DEFAULT_PERCENTAGE
         set(value) {
@@ -100,10 +101,10 @@ class PercentagesView(context: Context, attributeSet: AttributeSet) : View(conte
 
 
         canvas?.drawRect(
-            padding.toFloat() + (borderWidth),
-            padding.toFloat() + (borderWidth / 2),
-            (canvas.width - (padding + borderWidth / 2)).toFloat(),
-            (canvas.height - (padding + borderWidth / 2)).toFloat(),
+            padding + (borderWidth),
+            padding + (borderWidth / 2),
+            (canvas.width - (padding + borderWidth / 2)),
+            (canvas.height - (padding + borderWidth / 2)),
             paint
         )
 
