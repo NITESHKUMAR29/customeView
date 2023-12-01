@@ -11,11 +11,25 @@
             <enum name="happy" value="0" />
             <enum name="sad" value="1" />
         </attr>
+
     </declare-styleable>
 
     <declare-styleable name="PercentagesView">
         <attr name="barColor" format="color" />
         <attr name="barBorderWidth" format="dimension" />
         <attr name="barBorderColor" format="color" />
+
+        <attr name="labelText" format="string" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextColor" format="color" />
+        <attr name="states" format="enum">
+            <enum name="happy" value="0" />
+            <enum name="sad" value="1" />
+        </attr>
+        <attr name="labelTextStyle" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+        </attr>
+
     </declare-styleable>
 </resources>

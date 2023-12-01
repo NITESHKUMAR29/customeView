@@ -8,6 +8,7 @@ import com.example.emotionalfacecustomview.customViews.EmotionalFaceView
 import com.example.emotionalfacecustomview.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -24,22 +25,32 @@ class MainActivity : AppCompatActivity() {
         }
         binding.startShow.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
-                for (i in 0..100) {
-                    delay(200)
-                    Log.d("valuess", i.toString())
-                    binding.textView2.text = i.toString()
-                    binding.percentage.percentage = i
-                    if (i>50){
-                        binding.emotionalFaceView.happinessState = EmotionalFaceView.HAPPY
+                val job1 = async {
+                    for (i in 0..100) {
+                        delay(200)
+                        binding.textView2.text = i.toString()
+                        binding.percentage.labelText = "$i%"
+                        if (i > 50) {
+                            binding.emotionalFaceView.happinessState = EmotionalFaceView.HAPPY
+                        } else {
+                            binding.emotionalFaceView.happinessState = EmotionalFaceView.SAD
+                        }
                     }
-                    else{
-                        binding.emotionalFaceView.happinessState = EmotionalFaceView.SAD
-                    }
-
                 }
+
+                val job2 = async {
+                    for (i in 0..10000) {
+                        delay(2)
+                        Log.d("valuess", i.toString())
+                        val fraction = i / 100f
+                        binding.percentage.percentage = fraction.toFloat()
+
+                    }
+                }
+
+                job1.await() // Wait for the first loop to complete
+                job2.await() // Wait for the second loop to complete
             }
         }
-
-
     }
 }
